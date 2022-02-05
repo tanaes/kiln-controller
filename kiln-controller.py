@@ -24,7 +24,7 @@ except:
     exit(1)
 
 if hasattr(config, 'log_file'):
-    logging.basicConfig(file=config.log_file)
+    logging.basicConfig(filename=config.log_file)
 
 logging.basicConfig(level=config.log_level,
                     format=config.log_format)
