@@ -23,7 +23,13 @@ except:
     print ("Copy config.py.EXAMPLE to config.py and adapt it for your setup.")
     exit(1)
 
-logging.basicConfig(level=config.log_level, format=config.log_format)
+if hasattr(config, 'log_file'):
+    logging.basicConfig(file=config.log_file)
+
+logging.basicConfig(level=config.log_level,
+                    format=config.log_format)
+
+
 log = logging.getLogger("kiln-controller")
 log.info("Starting kiln controller")
 
