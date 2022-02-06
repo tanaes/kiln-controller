@@ -364,9 +364,9 @@ class Oven(threading.Thread):
             'pidstats': self.pid.pidstats,
         }
 
-        self.dotstar.time(self.totaltime,
+        self.output.dotstar.time(self.totaltime,
                           self.runtime)
-        self.dotstar.temp(self.temperature,
+        self.output.dotstar.temp(self.temperature,
                           self.target)
 
         return state
