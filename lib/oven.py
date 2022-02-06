@@ -391,6 +391,7 @@ class SimulatedOven(Oven):
         self.reset()
         self.board = BoardSimulated()
 
+        self.output = Output()
         self.t_env = config.sim_t_env
         self.c_heat = config.sim_c_heat
         self.c_oven = config.sim_c_oven
