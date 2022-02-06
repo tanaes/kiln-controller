@@ -388,10 +388,12 @@ class Oven(threading.Thread):
 class SimulatedOven(Oven):
 
     def __init__(self):
+        # call parent init
+        Oven.__init__(self)
+        
         self.reset()
         self.board = BoardSimulated()
 
-        self.output = Output()
         self.t_env = config.sim_t_env
         self.c_heat = config.sim_c_heat
         self.c_oven = config.sim_c_oven
@@ -404,8 +406,6 @@ class SimulatedOven(Oven):
         self.t = self.t_env # deg C temp of oven
         self.t_h = self.t_env #deg C temp of heating element
 
-        # call parent init
-        Oven.__init__(self)
 
         # start thread
         self.start()
