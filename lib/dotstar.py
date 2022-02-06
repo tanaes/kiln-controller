@@ -92,6 +92,8 @@ class dotstar(threading.Thread):
             self.temp_dots = None
             self.status_dots = None
 
+        self.start()
+
     def time(self, totaltime, runtime):
         if self.time_dots is None:
             return()
