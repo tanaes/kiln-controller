@@ -1,3 +1,4 @@
+import threading
 import board
 from adafruit_dotstar import DotStar
 from adafruit_led_animation.helper import PixelSubset
@@ -9,13 +10,14 @@ import adafruit_led_animation.color as color
 
 
 
-class dotstar(object):
+class dotstar(threading.Thread):
     def __init__(self,
                  clk_pin,
                  dat_pin,
                  n,
                  groups=None):
-
+        threading.Thread.__init__(self)
+        self.daemon = True
         self.pins = {10: board.D10,
                      11: board.D11,
                      12: board.D12,
@@ -152,7 +154,7 @@ class dotstar(object):
 
         animations.animate()
 
-    def idle(self):
+    def run(self):
         animation = Pulse(self.dots, 0.1, color.WHITE)
-
-        animation.animate()
+        while 1:
+            animation.animate()

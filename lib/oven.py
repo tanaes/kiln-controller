@@ -364,13 +364,13 @@ class Oven(threading.Thread):
             'pidstats': self.pid.pidstats,
         }
 
-        if self.state == "RUNNING":
-            self.output.dotstar.time(self.totaltime,
-                                     self.runtime)
-            self.output.dotstar.temp(self.temperature,
-                                     self.target)
-        if self.state == "IDLE":
-            self.output.dotstar.idle()
+        # if self.state == "RUNNING":
+        #     self.output.dotstar.time(self.totaltime,
+        #                              self.runtime)
+        #     self.output.dotstar.temp(self.temperature,
+        #                              self.target)
+        # if self.state == "IDLE":
+        #     self.output.dotstar.idle()
 
         return state
 
