@@ -56,6 +56,13 @@ time_disp = {'type': 'TMC1637',
 gpio_dotstar_clk = 19 # pin 35
 gpio_dotstar_dat = 13 # pin 33
 
+dotstar = {'clk_pin': 19,
+           'dat_pin': 13,
+           'n': 27,
+           'groups': {'time': [27, 18],
+                      'temp': [0, 9],
+                      'status': [10, 17]}}
+
 ## I2C pins
 gpio_i2c_sda1 = 2 # pin 3
 gpio_i2c_scl1 = 3 # pin 5

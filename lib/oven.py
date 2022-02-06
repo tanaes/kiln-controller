@@ -7,6 +7,7 @@ import logging
 import json
 import config
 from display import TM1637
+from dotstar import dotstar
 
 log = logging.getLogger(__name__)
 
@@ -35,6 +36,16 @@ class Output(object):
                 log.warning("Couldn't initialize temp display")
                 log.warning("Error: %s" % e)
                 self.temp_disp = False
+
+            try:
+                self.dotstar = dotstar(config.dotstar['clk_pin'],
+                                       config.dotstar['dat_pin'],
+                                       config.dotstar['n'],
+                                       config.dotstar['groups'])
+            except NameError as e:
+                log.warning("Couldn't initialize dotstar display")
+                log.warning("Error: %s" % e)
+                self.dotstar = False
 
     def load_libs(self):
         try:
@@ -352,6 +363,12 @@ class Oven(threading.Thread):
             'profile': self.profile.name if self.profile else None,
             'pidstats': self.pid.pidstats,
         }
+
+        self.dotstar.time(self.totaltime,
+                          self.runtime)
+        self.dotstar.temp(self.temperature,
+                          self.target)
+
         return state
 
     def run(self):
