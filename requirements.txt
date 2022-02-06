@@ -8,3 +8,5 @@ Adafruit-MAX31855
 Adafruit-GPIO
 websocket-client
 raspberrypi-tm1637
+adafruit-circuitpython-led-animation
+adafruit-circuitpython-dotstar
