@@ -390,7 +390,7 @@ class SimulatedOven(Oven):
     def __init__(self):
         # call parent init
         Oven.__init__(self)
-        
+        self.state = "SIM"
         self.reset()
         self.board = BoardSimulated()
 
