@@ -151,3 +151,8 @@ class dotstar(object):
                             sync=True))
 
         animations.animate()
+
+    def idle(self):
+        animation = Pulse(self.dots, 0.1, color.WHITE)
+
+        animation.animate()
