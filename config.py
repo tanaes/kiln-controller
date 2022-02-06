@@ -59,9 +59,12 @@ gpio_dotstar_dat = 13 # pin 33
 dotstar = {'clk_pin': 19,
            'dat_pin': 13,
            'n': 27,
-           'groups': {'time': [27, 18],
-                      'temp': [0, 9],
-                      'status': [10, 17]}}
+           'groups': {'time': {'start': 27,
+                               'end': 18},
+                      'temp': {'start': 0 ,
+                               'end': 9},
+                      'status': {'start': 10,
+                                 'end': 17}}}
 
 ## I2C pins
 gpio_i2c_sda1 = 2 # pin 3
